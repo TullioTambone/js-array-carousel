@@ -47,7 +47,6 @@ arrowDown.addEventListener('click', function() {
     if (index >= images.length) {
         index = 0;
     }
-
 });
 
 // decremento
@@ -75,7 +74,8 @@ for (let i = 0; i < images.length; i++) {
     let div = document.createElement('div');
     thumbnails.append(div);
     div.setAttribute('class', 'thumbnail');
-    div.setAttribute('onclick', 'changeImage()');
+    div.setAttribute('onclick', `changeImg(${i+1})`);
+    console.log(div)
 
     //aggiungo l'immagine presa dall'array
     let imgThumb = document.createElement('img');
@@ -83,15 +83,9 @@ for (let i = 0; i < images.length; i++) {
     div.appendChild(imgThumb);
 }
 
-let imgThumb = getAttribute('src');
-console.log(imgThumb);
-/* al click di thumbanil l'immagine di sfondo all'interno di imgSlider cambia con quella cliccata */
+// cambio immagine al click
 
-let src = img.getAttribute('src');
-
-let change = images.forEach((src, index) => {
-    // corpo della funzione
-    if (index != images[index]){
-        img.setAttribute('src', )
-    } 
-});
+function changeImg(num){
+    let change = `./assets/img/consegna/img/0`+ num +`.webp`;
+    document.querySelector('.lamp').src = change;
+}
