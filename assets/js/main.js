@@ -17,35 +17,50 @@
 // BONUS 2:
 // Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato.
 // Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
-// Prima di partire a scrivere codice:
-// Non lasciamoci spaventare dalla complessità apparente dell'esercizio, ma analizziamo prima, come abbiamo fatto sempre, cosa ci potrebbe aspettare. Abbiamo completato ormai da qualche giorno la sessione HTML e CSS, se non ci ricordiamo qualcosa andiamo pure a riguardare alcuni argomenti. Non dedichiamo però al ripasso più di una mezz'ora, così da non perdere di vista il focus dell'esercizio.
+
 
 
 let images = [
-    'assets\img\consegna\img\01.webp', //0 to 1
-    'assets\img\consegna\img\02.webp', //1 to 2
-    'assets\img\consegna\img\03.webp', //2 to 3
-    'assets\img\consegna\img\04.webp', //3 to 4
-    'assets\img\consegna\img\05.webp', //4 to 5
+    './assets/img/consegna/img/01.webp', //0 to 1
+    './assets/img/consegna/img/02.webp', //1 to 2
+    './assets/img/consegna/img/03.webp', //2 to 3
+    './assets/img/consegna/img/04.webp', //3 to 4
+    './assets/img/consegna/img/05.webp', //4 to 5
 ];
 
 let arrowUp = document.querySelector('.arrowUp');
 let arrowDown = document.querySelector('.arrowDown');
 
-console.log(arrowUp, arrowDown);
+//setto la variabile indice
+let index = 1;
 
-for (let i = 0; i < images.length; i++) {
-    let containerImg = document.querySelector('.imgSlider');
-    let img = document.createElement('img');
-    img.setAttribute('src', images[i]);
-    document.querySelector('.imgSlider').appendChild(img);
+// creo l'elemento img nel div imgSlider
+// let img = document.createElement('img');
+// document.querySelector('.imgSlider').appendChild(img);
 
-    img.src = images[i];
+let img = document.querySelector("#lamp")
+//incremento
+arrowDown.addEventListener('click', function() {
 
-    if (i == images.length - 1) {
-        i = 0;
+    //passo l'attributo src al img con il path dell'immagine nell'array
+    img.setAttribute('src', images[index]);
+    index++;
+
+    if (index >= images.length) {
+        index = 0;
+    }
+});
+
+// decremento
+arrowUp.addEventListener('click', function() {
+
+    img.setAttribute('src', images[index]);
+    index --;
     
-    
-    console.log(img);
-    console.log(containerImg);
-}
+
+    if (index < 0) {
+        index = images.length - 1;
+    }
+});
+
+
