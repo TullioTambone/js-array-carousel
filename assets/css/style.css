@@ -66,12 +66,12 @@ img{
     top:0;
     right: 0;
     bottom:0;
-    width: 100px;
+    width: 110px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 0.5em;
-    padding: 5px;
+    padding: 10px;
 }
 
 .thumbnail{
@@ -80,10 +80,10 @@ img{
     height: 50px;
     opacity: 0.5;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 .thumbnail:hover{
-    cursor: pointer;
     transform: scale(1.1);
     transition: all 0.5s ease;
     opacity: 1;

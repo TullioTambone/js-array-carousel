@@ -28,17 +28,15 @@ let images = [
     './assets/img/consegna/img/05.webp', //4 to 5
 ];
 
+// seleziono le freccette
 let arrowUp = document.querySelector('.arrowUp');
 let arrowDown = document.querySelector('.arrowDown');
 
 //setto la variabile indice
-let index = 1;
+let index = 0;
 
-// creo l'elemento img nel div imgSlider
-// let img = document.createElement('img');
-// document.querySelector('.imgSlider').appendChild(img);
+let img = document.querySelector(".lamp");
 
-let img = document.querySelector("#lamp")
 //incremento
 arrowDown.addEventListener('click', function() {
 
@@ -49,6 +47,7 @@ arrowDown.addEventListener('click', function() {
     if (index >= images.length) {
         index = 0;
     }
+
 });
 
 // decremento
@@ -56,11 +55,43 @@ arrowUp.addEventListener('click', function() {
 
     img.setAttribute('src', images[index]);
     index --;
-    
 
     if (index < 0) {
         index = images.length - 1;
     }
+
+    
 });
 
 
+///thumbnails
+
+
+let thumbnails = document.querySelector('.thumbnails');
+
+for (let i = 0; i < images.length; i++) {
+
+    //creo l'elemento div con classe thumbnail
+    let div = document.createElement('div');
+    thumbnails.append(div);
+    div.setAttribute('class', 'thumbnail');
+    div.setAttribute('onclick', 'changeImage()');
+
+    //aggiungo l'immagine presa dall'array
+    let imgThumb = document.createElement('img');
+    imgThumb.setAttribute('src', images[i]);
+    div.appendChild(imgThumb);
+}
+
+let imgThumb = getAttribute('src');
+console.log(imgThumb);
+/* al click di thumbanil l'immagine di sfondo all'interno di imgSlider cambia con quella cliccata */
+
+let src = img.getAttribute('src');
+
+let change = images.forEach((src, index) => {
+    // corpo della funzione
+    if (index != images[index]){
+        img.setAttribute('src', )
+    } 
+});
